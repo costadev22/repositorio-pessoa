@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Marca o <html> como "com JS" antes de pintar a página (usado pela animação de entrada) -->
+  <script>document.documentElement.classList.add("js");</script>
+
+  <title>Washington Costa | washingtoncosta.dev — Desenvolvedor Web</title>
+  <meta name="description" content="Washington Costa (costadev / washingtoncosta.dev), desenvolvedor web front-end e fullstack em Suzano, SP. Portfólio e criação de sites profissionais como freelancer." />
+  <meta name="theme-color" content="#1b1e27" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Washington Costa | washingtoncosta.dev — Desenvolvedor Web" />
+  <meta property="og:description" content="Conheça os projetos de Washington Costa, desenvolvedor web em Suzano, SP. Sites profissionais, front-end, fullstack e serviços freelance." />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Washington Costa — Desenvolvedor Web" />
+  <meta name="twitter:description" content="Portfólio de Washington Costa: projetos web e criação de sites como freelancer em Suzano, SP." />
+  <!-- Quando tiver o domínio final, adicione:
+       <link rel="canonical" href="https://SEU-DOMINIO/" />
+       <meta property="og:url" content="https://SEU-DOMINIO/" /> -->
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v4 (CDN, sem build) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+  <style type="text/tailwindcss">
+    /* Liga as variáveis de css/style.css às classes do Tailwind (bg-primary, text-foreground...) */
+    @theme inline {
+      --color-background: var(--background);
+      --color-foreground: var(--foreground);
+      --color-card: var(--card);
+      --color-primary: var(--primary);
+      --color-muted: var(--muted);
+      --color-muted-foreground: var(--muted-foreground);
+      --color-border: var(--border);
+      --font-display: "Sora", sans-serif;
+      --font-sans: "Manrope", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+    @layer base {
+      * { border-color: var(--color-border); }
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Dados estruturados (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "Washington Costa — Portfólio de desenvolvimento web",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Washington Costa",
+      "alternateName": ["costadev", "washingtoncosta.dev"],
+      "jobTitle": "Desenvolvedor web",
+      "sameAs": ["https://github.com/costadev22", "https://www.linkedin.com/in/washington22/"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Suzano",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      }
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Sprite de ícones (use com <svg class="icon"><use href="#nome"/></svg>) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+      <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+      <symbol id="i-graduation" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+
+      <!-- Marcas (preenchidas) -->
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="relative overflow-x-hidden">
+
+    <!-- ===================== HEADER ===================== -->
+    <header id="header" class="fixed inset-x-0 top-0 z-40 transition-all">
+      <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5" aria-label="Principal">
+        <a href="#inicio" class="font-display text-xl font-bold text-foreground">
+          costa<span class="text-primary">dev</span><span class="brand-caret" aria-hidden="true">_</span>
+        </a>
+
+        <ul class="hidden items-center gap-8 md:flex">
+          <li><a href="#inicio" class="nav-link">Início</a></li>
+          <li><a href="#projetos" class="nav-link">Projetos</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre mim</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+
+        <a data-whatsapp target="_blank" rel="noopener noreferrer" class="btn-primary hidden md:inline-flex">Vamos conversar</a>
+
+        <button id="menu-btn" type="button"
+          class="grid size-10 place-items-center rounded-lg border border-border text-foreground md:hidden"
+          aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu">
+          <svg id="icon-open" class="icon size-5" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg id="icon-close" class="icon hidden size-5" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </nav>
+
+      <div id="mobile-menu" class="hidden border-t border-border px-5 pb-6 md:hidden">
+        <ul class="flex flex-col py-2">
+          <li><a href="#inicio" class="block py-3 text-lg text-foreground">Início</a></li>
+          <li><a href="#projetos" class="block py-3 text-lg text-foreground">Projetos</a></li>
+          <li><a href="#sobre" class="block py-3 text-lg text-foreground">Sobre mim</a></li>
+          <li><a href="#contato" class="block py-3 text-lg text-foreground">Contato</a></li>
+        </ul>
+        <a data-whatsapp target="_blank" rel="noopener noreferrer" class="btn-primary w-full justify-center">Vamos conversar</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===================== HERO ===================== -->
+      <section id="inicio" class="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-5 pt-28 pb-16">
+        <div class="hero-grid-bg" aria-hidden="true"></div>
+        <div class="reveal">
+          <p class="mb-5 text-lg text-muted-foreground">Olá, eu sou Washington Costa 👋</p>
+
+          <!-- O texto é digitado por js/main.js. Sem JS, o texto completo aparece. -->
+          <h1 id="typed-title" class="font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl">
+            <span id="typed-text">Transformo ideias em <span class="text-gradient">experiências digitais.</span></span><span id="typed-caret" class="typing-caret" aria-hidden="true"></span>
+          </h1>
+
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            Sou desenvolvedor web e estudante de Sistemas de Informação, apaixonado por tecnologia
+            e pela criação de soluções digitais modernas, funcionais e responsivas.
+          </p>
+          <p class="mt-3 max-w-xl text-foreground/80">
+            Desenvolvimento de sites para negócios e projetos que precisam de uma presença digital profissional.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#projetos" class="btn-primary">
+              Ver meus projetos <svg class="icon size-4" aria-hidden="true"><use href="#i-arrow-down"/></svg>
+            </a>
+            <a data-whatsapp target="_blank" rel="noopener noreferrer" class="btn-outline">Entrar em contato</a>
+          </div>
+
+          <p class="mt-8 text-sm text-muted-foreground">📍 Suzano, São Paulo — Brasil</p>
+        </div>
+      </section>
+
+      <!-- ===================== PROJETOS ===================== -->
+      <section id="projetos" class="section">
+        <div class="reveal mb-14 max-w-2xl">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-primary">Portfólio</p>
+          <h2 class="font-display text-3xl font-semibold tracking-tight text-foreground md:text-5xl">Projetos em destaque</h2>
+          <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
+            Projetos desenvolvidos para explorar interfaces, experiências de navegação e soluções web.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+          <!-- Projeto 1 -->
+          <div class="reveal">
+            <article class="group surface-card hoverable flex h-full flex-col overflow-hidden p-3 hover:-translate-y-1">
+              <div class="aspect-[16/10] overflow-hidden rounded-xl bg-muted">
+                <img src="assets/img/cafateria-prime.jpg" alt="Captura de tela do site Grão & Prosa" loading="lazy" width="1000" height="563"
+                  class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div class="flex flex-1 flex-col p-4">
+                <h3 class="font-display text-xl font-semibold text-foreground">Grão &amp; Prosa</h3>
+                <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  Template de site para cafeteria, com uma identidade visual acolhedora e uma apresentação digital pensada para destacar produtos e fortalecer a presença online de uma marca.
+                </p>
+                <a href="https://cafateria-prime.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-outline mt-6 self-start">
+                  Ver projeto ao vivo <svg class="icon size-4" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Projeto 2 -->
+          <div class="reveal">
+            <article class="group surface-card hoverable flex h-full flex-col overflow-hidden p-3 hover:-translate-y-1">
+              <div class="aspect-[16/10] overflow-hidden rounded-xl bg-muted">
+                <img src="assets/img/navalhacia.jpg" alt="Captura de tela do site Navalha & Cia" loading="lazy" width="1000" height="563"
+                  class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div class="flex flex-1 flex-col p-4">
+                <h3 class="font-display text-xl font-semibold text-foreground">Navalha &amp; Cia</h3>
+                <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  Template de site para barbearia, desenvolvido para apresentar os serviços do negócio com uma identidade visual marcante e uma experiência de navegação intuitiva.
+                </p>
+                <a href="https://navalhacia.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-outline mt-6 self-start">
+                  Ver projeto ao vivo <svg class="icon size-4" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Projeto 3 -->
+          <div class="reveal">
+            <article class="group surface-card hoverable flex h-full flex-col overflow-hidden p-3 hover:-translate-y-1">
+              <div class="aspect-[16/10] overflow-hidden rounded-xl bg-muted">
+                <img src="assets/img/eduecomerce.jpg" alt="Captura de tela do site Loja Ecomerce" loading="lazy" width="1000" height="563"
+                  class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div class="flex flex-1 flex-col p-4">
+                <h3 class="font-display text-xl font-semibold text-foreground">Loja Ecomerce</h3>
+                <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  Template de e-commerce com foco na apresentação de produtos, organização visual e experiência de compra em uma interface moderna.
+                </p>
+                <a href="https://eduecomerce.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-outline mt-6 self-start">
+                  Ver projeto ao vivo <svg class="icon size-4" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===================== SERVIÇOS ===================== -->
+      <section id="servicos" class="section">
+        <div class="reveal mb-14 max-w-2xl">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-primary">Serviços</p>
+          <h2 class="font-display text-3xl font-semibold tracking-tight text-foreground md:text-5xl">Desenvolvimento web sem complicação</h2>
+          <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
+            Meu objetivo é transformar sua ideia em um site profissional, com comunicação clara, atenção aos detalhes e foco nas necessidades do seu negócio.
+          </p>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="reveal">
+            <article class="surface-card hoverable h-full p-6">
+              <span class="icon-chip"><svg class="icon size-5" aria-hidden="true"><use href="#i-message"/></svg></span>
+              <h3 class="mt-5 font-display text-lg font-semibold text-foreground">Atendimento próximo e ágil</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">Comunicação direta, respostas rápidas e acompanhamento durante o desenvolvimento do seu projeto.</p>
+            </article>
+          </div>
+          <div class="reveal">
+            <article class="surface-card hoverable h-full p-6">
+              <span class="icon-chip"><svg class="icon size-5" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+              <h3 class="mt-5 font-display text-lg font-semibold text-foreground">Preço justo e negociável</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">Vamos conversar sobre sua ideia e encontrar uma solução que faça sentido para suas necessidades e seu orçamento.</p>
+            </article>
+          </div>
+          <div class="reveal">
+            <article class="surface-card hoverable h-full p-6">
+              <span class="icon-chip"><svg class="icon size-5" aria-hidden="true"><use href="#i-globe"/></svg></span>
+              <h3 class="mt-5 font-display text-lg font-semibold text-foreground">Seu site disponível online</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">Publico seu projeto para que seus clientes possam acessá-lo pela internet. O domínio, a hospedagem e eventuais custos adicionais serão combinados previamente.</p>
+            </article>
+          </div>
+          <div class="reveal">
+            <article class="surface-card hoverable h-full p-6">
+              <span class="icon-chip"><svg class="icon size-5" aria-hidden="true"><use href="#i-monitor"/></svg></span>
+              <h3 class="mt-5 font-display text-lg font-semibold text-foreground">Design responsivo</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">Sites adaptados para computadores, tablets e celulares, proporcionando uma experiência consistente em diferentes telas.</p>
+            </article>
+          </div>
+          <div class="reveal">
+            <article class="surface-card hoverable h-full p-6">
+              <span class="icon-chip"><svg class="icon size-5" aria-hidden="true"><use href="#i-gauge"/></svg></span>
+              <h3 class="mt-5 font-display text-lg font-semibold text-foreground">Foco em qualidade e desempenho</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">Interfaces organizadas, navegação intuitiva e atenção ao desempenho, à acessibilidade e às boas práticas de desenvolvimento.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== SOBRE ===================== -->
+      <section id="sobre" class="section">
+        <div class="grid gap-12 lg:grid-cols-[1.3fr_1fr]">
+          <div>
+            <div class="reveal mb-14 max-w-2xl">
+              <p class="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-primary">Sobre</p>
+              <h2 class="font-display text-3xl font-semibold tracking-tight text-foreground md:text-5xl">Um pouco sobre mim</h2>
+            </div>
+            <div class="reveal space-y-5 text-lg leading-relaxed text-muted-foreground">
+              <p>Meu nome é Washington Costa, sou tecnólogo em Análise e Desenvolvimento de Sistemas e atualmente curso Sistemas de Informação na Estácio.</p>
+              <p>Tenho conhecimentos em tecnologias web e desenvolvimento fullstack, e gosto de transformar ideias em projetos digitais funcionais, modernos e bem estruturados.</p>
+              <p>Busco evoluir constantemente como desenvolvedor, colocando meus conhecimentos em prática por meio de projetos próprios e trabalhos freelance. Meu objetivo é criar soluções que unam tecnologia, usabilidade e uma boa experiência para quem utiliza cada aplicação.</p>
+            </div>
+          </div>
+
+          <div class="reveal self-end">
+            <dl class="surface-card divide-y divide-border">
+              <div class="flex gap-4 p-5">
+                <span class="icon-chip"><svg class="icon size-5" aria-hidden="true"><use href="#i-graduation"/></svg></span>
+                <div>
+                  <dt class="text-xs uppercase tracking-wider text-muted-foreground">Formação</dt>
+                  <dd class="mt-1 text-foreground">Tecnologia em Análise e Desenvolvimento de Sistemas</dd>
+                </div>
+              </div>
+              <div class="flex gap-4 p-5">
+                <span class="icon-chip"><svg class="icon size-5" aria-hidden="true"><use href="#i-book"/></svg></span>
+                <div>
+                  <dt class="text-xs uppercase tracking-wider text-muted-foreground">Formação atual</dt>
+                  <dd class="mt-1 text-foreground">Sistemas de Informação — Estácio</dd>
+                </div>
+              </div>
+              <div class="flex gap-4 p-5">
+                <span class="icon-chip"><svg class="icon size-5" aria-hidden="true"><use href="#i-pin"/></svg></span>
+                <div>
+                  <dt class="text-xs uppercase tracking-wider text-muted-foreground">Localização</dt>
+                  <dd class="mt-1 text-foreground">Suzano, SP — Brasil</dd>
+                </div>
+              </div>
+              <div class="flex gap-4 p-5">
+                <span class="icon-chip"><svg class="icon size-5" aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+                <div>
+                  <dt class="text-xs uppercase tracking-wider text-muted-foreground">Atuação</dt>
+                  <dd class="mt-1 text-foreground">Desenvolvimento web e projetos freelance</dd>
+                </div>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CONTATO (CTA) ===================== -->
+      <section id="contato" class="section">
+        <div class="reveal">
+          <div class="cta-panel px-6 py-16 text-center md:px-16">
+            <h2 class="font-display text-3xl font-bold tracking-tight text-foreground md:text-5xl">Tem uma ideia? Vamos tirar do papel.</h2>
+            <p class="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
+              Se você precisa de um site para seu negócio, quer desenvolver um projeto ou está buscando um desenvolvedor para fazer parte de uma equipe, vamos conversar.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <a data-whatsapp target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <svg class="icon-fill size-5" aria-hidden="true"><use href="#i-whatsapp"/></svg> Falar comigo no WhatsApp
+              </a>
+              <a data-email class="btn-outline">
+                <svg class="icon size-4" aria-hidden="true"><use href="#i-mail"/></svg> Enviar um e-mail
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="border-t border-border">
+      <div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-2">
+        <div>
+          <p class="font-display text-2xl font-bold text-foreground">Washington Costa</p>
+          <p class="mt-3 max-w-sm text-muted-foreground">Desenvolvendo ideias, construindo soluções e evoluindo a cada projeto.</p>
+        </div>
+
+        <div class="grid gap-2 sm:grid-cols-2">
+          <a data-email class="contact-link">
+            <span class="contact-icon"><svg class="icon size-4" aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <span class="flex flex-col">
+              <span class="text-xs uppercase tracking-wider">E-mail</span>
+              <span class="text-sm text-foreground" data-email-text></span>
+            </span>
+          </a>
+          <a data-whatsapp target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-icon"><svg class="icon-fill size-4" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+            <span class="flex flex-col">
+              <span class="text-xs uppercase tracking-wider">WhatsApp</span>
+              <span class="text-sm text-foreground">+55 11 96235-0981</span>
+            </span>
+          </a>
+          <a data-github target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-icon"><svg class="icon-fill size-4" aria-hidden="true"><use href="#i-github"/></svg></span>
+            <span class="flex flex-col">
+              <span class="text-xs uppercase tracking-wider">GitHub</span>
+              <span class="text-sm text-foreground">costadev22</span>
+            </span>
+          </a>
+          <a data-linkedin target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-icon"><svg class="icon-fill size-4" aria-hidden="true"><use href="#i-linkedin"/></svg></span>
+            <span class="flex flex-col">
+              <span class="text-xs uppercase tracking-wider">LinkedIn</span>
+              <span class="text-sm text-foreground">washington22</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <p class="border-t border-border py-6 pb-24 text-center text-sm text-muted-foreground md:pb-6">
+        © <span id="year">2026</span> Washington Costa. Todos os direitos reservados.
+      </p>
+    </footer>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <a data-whatsapp target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="Conversar com Washington no WhatsApp">
+      <svg class="icon-fill size-7" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+    </a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

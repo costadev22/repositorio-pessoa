@@ -1,0 +1,265 @@
+/* =========================================================
+   Washington Costa — Portfólio
+   Tokens de design + componentes reutilizáveis.
+   O Tailwind (via CDN) cuida do layout; aqui ficam as cores,
+   os botões, os cards e as animações.
+   ========================================================= */
+
+:root {
+  --radius: 0.875rem;
+
+  /* Cores (oklch) */
+  --background: oklch(0.2 0.015 260);
+  --foreground: oklch(0.96 0.005 250);
+  --card: oklch(0.25 0.02 260);
+  --primary: oklch(0.85 0.19 160);
+  --primary-foreground: oklch(0.14 0.02 250);
+  --primary-glow: oklch(0.85 0.19 160);
+  --muted: oklch(0.27 0.02 260);
+  --muted-foreground: oklch(0.7 0.015 250);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.85 0.19 160);
+  --whatsapp: oklch(0.72 0.19 150);
+  --whatsapp-foreground: oklch(1 0 0);
+
+  --gradient-primary: linear-gradient(120deg, var(--primary), var(--primary-glow));
+  --shadow-glow: 0 6px 20px -8px color-mix(in oklab, var(--primary) 50%, transparent);
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Manrope", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Ícones (sprite SVG) */
+.icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* ---------- Layout ---------- */
+.section {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding: 6rem 1.25rem;
+}
+
+/* ---------- Superfícies ---------- */
+.surface-card {
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--card) 80%, transparent);
+}
+.surface-card.hoverable {
+  transition: border-color 0.3s, transform 0.3s;
+}
+.surface-card.hoverable:hover {
+  border-color: color-mix(in oklab, var(--primary) 40%, transparent);
+}
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.header-glass {
+  background: color-mix(in oklab, var(--background) 80%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.icon-chip {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  color: var(--primary);
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  border: 1px solid color-mix(in oklab, var(--primary) 25%, transparent);
+}
+.cta-panel {
+  border-radius: 2rem;
+  border: 1px solid color-mix(in oklab, var(--primary) 30%, transparent);
+  background:
+    radial-gradient(circle at 50% 0%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 70%),
+    var(--card);
+}
+
+/* ---------- Links e botões ---------- */
+.nav-link {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: var(--foreground);
+}
+
+.btn-primary,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.btn-primary {
+  padding: 0.75rem 1.4rem;
+  background: var(--gradient-primary);
+  color: var(--primary-foreground);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+.btn-outline {
+  padding: 0.7rem 1.3rem;
+  border: 1px solid var(--input);
+  color: var(--foreground);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: color-mix(in oklab, var(--primary) 8%, transparent);
+}
+
+/* Link de contato do rodapé */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: var(--muted-foreground);
+  transition: color 0.2s;
+}
+.contact-link:hover {
+  color: var(--foreground);
+}
+.contact-link .contact-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, color 0.2s;
+}
+.contact-link:hover .contact-icon {
+  border-color: color-mix(in oklab, var(--primary) 60%, transparent);
+  color: var(--primary);
+}
+
+/* ---------- Fundo do hero ---------- */
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 60% 40%, black 10%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 60% 40%, black 10%, transparent 70%);
+}
+
+/* ---------- Botão flutuante do WhatsApp ---------- */
+.whatsapp-fab {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background: var(--whatsapp);
+  color: var(--whatsapp-foreground);
+  box-shadow: 0 8px 24px -6px color-mix(in oklab, var(--whatsapp) 60%, transparent);
+  transition: transform 0.25s;
+  animation: pulse-ring 2.8s ease-out infinite;
+}
+.whatsapp-fab:hover {
+  transform: scale(1.08);
+}
+
+/* ---------- Animação de entrada (scroll) ---------- */
+/* Só esconde se o JS estiver ativo (classe "js" no <html>) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Cursor de digitação ---------- */
+.typing-caret {
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  margin-left: 0.15em;
+  vertical-align: -0.05em;
+  background: var(--primary);
+  border-radius: 2px;
+}
+.typing-caret.is-blinking {
+  animation: caret-blink 1s step-end infinite;
+}
+.brand-caret {
+  display: inline-block;
+  margin-left: 1px;
+  color: var(--primary);
+  animation: caret-blink 1s step-end infinite;
+}
+
+@keyframes caret-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 50%, transparent); }
+  70%, 100% { box-shadow: 0 0 0 14px transparent; }
+}
+
+/* ---------- Acessibilidade: menos movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
